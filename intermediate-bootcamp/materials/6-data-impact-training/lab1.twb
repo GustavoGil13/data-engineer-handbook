@@ -1,0 +1,2393 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 20252.25.1003.1601                               -->
+<workbook original-version='18.1' source-build='2025.2.4 (20252.25.1003.1601)' source-platform='win' version='18.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <document-format-change-manifest>
+    <AnimationOnByDefault />
+    <IntuitiveSorting />
+    <IntuitiveSorting_SP2 />
+    <MarkAnimation />
+    <ObjectModelEncapsulateLegacy />
+    <ObjectModelExtractV2 />
+    <ObjectModelTableType />
+    <SchemaViewerObjectModel />
+    <SheetIdentifierTracking />
+    <_.fcp.VConnDownstreamExtractsWithWarnings.true...VConnDownstreamExtractsWithWarnings />
+    <WindowsPersistSimpleIdentifiers />
+  </document-format-change-manifest>
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <datasources>
+    <datasource caption='events.csv+ (Multiple Connections)' inline='true' name='federated.07uw3g30fzc4ja1g0gr3s1hcohhn' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='devices' name='textscan.15ed3az1rvy9vv110jbk11vkpp1h'>
+            <connection class='textscan' directory='C:/Users/Gustavo Morais/OneDrive/Documentos/data-engineer-handbook/intermediate-bootcamp/materials/6-data-impact-training/data' filename='devices.csv' password='' server='' />
+          </named-connection>
+          <named-connection caption='events' name='textscan.1xtykdm0lrxjgr1erhm8y0zq0lq2'>
+            <connection class='textscan' directory='C:/Users/Gustavo Morais/OneDrive/Documentos/data-engineer-handbook/intermediate-bootcamp/materials/6-data-impact-training/data' filename='events.csv' password='' server='' />
+          </named-connection>
+        </named-connections>
+        <relation type='collection'>
+          <relation connection='textscan.1xtykdm0lrxjgr1erhm8y0zq0lq2' name='events.csv' table='[events#csv]' type='table'>
+            <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+              <column datatype='string' name='user_id' ordinal='0' />
+              <column datatype='string' name='device_id' ordinal='1' />
+              <column datatype='string' name='referrer' ordinal='2' />
+              <column datatype='string' name='host' ordinal='3' />
+              <column datatype='string' name='url' ordinal='4' />
+              <column datatype='datetime' name='event_time' ordinal='5' />
+            </columns>
+          </relation>
+          <relation connection='textscan.1xtykdm0lrxjgr1erhm8y0zq0lq2' name='devices.csv' table='[devices#csv]' type='table'>
+            <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+              <column datatype='string' name='device_id' ordinal='0' />
+              <column datatype='string' name='browser_type' ordinal='1' />
+              <column datatype='string' name='os_type' ordinal='2' />
+              <column datatype='string' name='device_type' ordinal='3' />
+            </columns>
+          </relation>
+        </relation>
+        <cols>
+          <map key='[browser_type]' value='[devices.csv].[browser_type]' />
+          <map key='[device_id (devices.csv)]' value='[devices.csv].[device_id]' />
+          <map key='[device_id]' value='[events.csv].[device_id]' />
+          <map key='[device_type]' value='[devices.csv].[device_type]' />
+          <map key='[event_time]' value='[events.csv].[event_time]' />
+          <map key='[host]' value='[events.csv].[host]' />
+          <map key='[os_type]' value='[devices.csv].[os_type]' />
+          <map key='[referrer]' value='[events.csv].[referrer]' />
+          <map key='[url]' value='[events.csv].[url]' />
+          <map key='[user_id]' value='[events.csv].[user_id]' />
+        </cols>
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[events.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[devices.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>user_id</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[user_id]</local-name>
+            <parent-name>[events.csv]</parent-name>
+            <remote-alias>user_id</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <object-id>[events.csv_1113F1F2BFCC43818BE83D23C945DB80]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>device_id</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[device_id]</local-name>
+            <parent-name>[events.csv]</parent-name>
+            <remote-alias>device_id</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <object-id>[events.csv_1113F1F2BFCC43818BE83D23C945DB80]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>referrer</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[referrer]</local-name>
+            <parent-name>[events.csv]</parent-name>
+            <remote-alias>referrer</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <object-id>[events.csv_1113F1F2BFCC43818BE83D23C945DB80]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>host</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[host]</local-name>
+            <parent-name>[events.csv]</parent-name>
+            <remote-alias>host</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <object-id>[events.csv_1113F1F2BFCC43818BE83D23C945DB80]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>url</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[url]</local-name>
+            <parent-name>[events.csv]</parent-name>
+            <remote-alias>url</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <object-id>[events.csv_1113F1F2BFCC43818BE83D23C945DB80]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>event_time</remote-name>
+            <remote-type>135</remote-type>
+            <local-name>[event_time]</local-name>
+            <parent-name>[events.csv]</parent-name>
+            <remote-alias>event_time</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>datetime</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[events.csv_1113F1F2BFCC43818BE83D23C945DB80]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>device_id</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[device_id (devices.csv)]</local-name>
+            <parent-name>[devices.csv]</parent-name>
+            <remote-alias>device_id</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <object-id>[devices.csv_83D13CC4C3684DCF87833F4541BD96F1]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>browser_type</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[browser_type]</local-name>
+            <parent-name>[devices.csv]</parent-name>
+            <remote-alias>browser_type</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <object-id>[devices.csv_83D13CC4C3684DCF87833F4541BD96F1]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>os_type</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[os_type]</local-name>
+            <parent-name>[devices.csv]</parent-name>
+            <remote-alias>os_type</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <object-id>[devices.csv_83D13CC4C3684DCF87833F4541BD96F1]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>device_type</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[device_type]</local-name>
+            <parent-name>[devices.csv]</parent-name>
+            <remote-alias>device_type</remote-alias>
+            <ordinal>9</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <object-id>[devices.csv_83D13CC4C3684DCF87833F4541BD96F1]</object-id>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='devices.csv' datatype='table' name='[__tableau_internal_object_id__].[devices.csv_83D13CC4C3684DCF87833F4541BD96F1]' role='measure' type='quantitative' />
+      <column caption='events.csv' datatype='table' name='[__tableau_internal_object_id__].[events.csv_1113F1F2BFCC43818BE83D23C945DB80]' role='measure' type='quantitative' />
+      <column caption='Browser Type' datatype='string' name='[browser_type]' role='dimension' type='nominal' />
+      <column caption='Device Id (Devices.Csv)' datatype='string' name='[device_id (devices.csv)]' role='dimension' type='nominal' />
+      <column caption='Device Id' datatype='string' name='[device_id]' role='dimension' type='nominal' />
+      <column caption='Device Type' datatype='string' name='[device_type]' role='dimension' type='nominal' />
+      <column caption='Event Time' datatype='datetime' name='[event_time]' role='dimension' type='ordinal' />
+      <column caption='Host' datatype='string' name='[host]' role='dimension' type='nominal' />
+      <column caption='Os Type' datatype='string' name='[os_type]' role='dimension' type='nominal' />
+      <column caption='Referrer' datatype='string' name='[referrer]' role='dimension' type='nominal' />
+      <column caption='Url' datatype='string' name='[url]' role='dimension' type='nominal' />
+      <column caption='User Id' datatype='string' name='[user_id]' role='dimension' type='nominal' />
+      <column-instance column='[host]' derivation='None' name='[none:host:nk]' pivot='key' type='nominal' />
+      <group caption='Top 3 Hosts' name='[Host Set]' name-style='unqualified' user:ui-builder='filter-group'>
+        <groupfilter count='3' end='top' function='end' units='records' user:ui-marker='end' user:ui-top-by-field='true'>
+          <groupfilter direction='DESC' expression='COUNT([__tableau_internal_object_id__].[events.csv_1113F1F2BFCC43818BE83D23C945DB80])' function='order' user:ui-marker='order'>
+            <groupfilter function='union' user:ui-domain='database' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
+              <groupfilter function='member' level='[host]' member='&quot;aashish.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;abhishekanand.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;ablumhardt.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;accc.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;adam.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;admin.zachwilson.tech&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;afonsolenzi.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;ahmedgs.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;aishgrt.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;aishwarya.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;albertoxvicente.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;alex.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;amit22.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;andrewm.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;aneerat1.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;anitjyotishi.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;ankit.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;annageller.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;anne.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;anuragambuja.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;arumi.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;arumi514.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;arundac23.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;asdsadsas.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;asegura.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;ashrafomara.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;bahushekh.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;balthapaixao.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;bek.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;bgraves.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;bjork.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;bootcamp.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;brandonltran.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;bvs555.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;carly.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;carolinegjr.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;caseyb574.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;chethan.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;chetna.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;cookiemonster.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;crajas200.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;daliana.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;dalianacrazytest.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;dalianatest123.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;danmac.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;darkhan.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;datawithdhruv.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;dblash55.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;dchintada.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;dd007.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;delelinus.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;denmiller3.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;dilan.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;dipankartnt.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;dmcvey.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;dougkim.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;dscottdegeest.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;dsk.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;dutchengineer.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;dvic.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;eczachly.com&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;eczachly.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;eee.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;eliasbenaddou.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;eliasotieno.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;elijahdecalmer.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;ella.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;eswardileep99.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;fabioantunes.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;fahadahme.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;fifthfrankie.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;fjaxyu.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;fmaina.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;ges214.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;gina.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;gireeshgalande.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;gowrirajavelu.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;granoladata.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;guima.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;habeeb.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;habibjanjua.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;harigudla.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;haroombe.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;harshitsati.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;harshoswal957.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;havih1.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;hehateme1304.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;him049.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;host.docker.internal:3000&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;httpszachwilson.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;httpzachwilson.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;ibmsayem.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;imsasuke.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;indera.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;jabhij.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;jadenguyenseattlegirl.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;jashyant.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;jcharbneau.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;jdk5115.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;jeannerot.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;jguillot.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;jjsuriano.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;joca.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;joey.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;johncrickett.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;jordanallenlewis.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;jorgeruiz97jr.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;josh.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;jpdrapeau.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;juliescherer.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;karema.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;karthikk.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;kilodalton.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;kinza.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;kirthiga.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;kmazurczyk.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;kmdeore359.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;kotpeter.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;kukukaka.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;kumar111.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;kunalkushwaha.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;kyledufrane.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;lakshmik.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;ldch90.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;lipeoctareo.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;liyin.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;lizzzz0.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;lkaufman.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;lmaopeep.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;localhost:3000&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;looz.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;lul.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;lulu.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;luul.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;mahesh40.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;mani1418.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;maritochapin.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;mathiasmike.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;meame2010.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;mikepuri07.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;mitali.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;mjones.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;mrajasekhar9.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;mrukaj.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;msikou.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;mu303usm.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;mveilleux.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;mybuys009.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;mytrainerly.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;nagkumar.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;nanaadu.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;neeraj3685.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;nicksingh.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;niharikaravela.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;norby.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;octavianzarzu.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;octavs.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;owa.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;oxin.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;pandiankavi36.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;paritesh.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;peterdrock.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;pkrishmurthy.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;ppat.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;pradeepcprabhakar.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;prathamesh0421.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;pratikt07.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;pravinbtech.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;priyali.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;raghad.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;rahulcanzod.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;rahulkumaran.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;rajincloud0.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;rajshan.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;ramyaiyappan.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;ranbir9.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;revanth25.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;rodrigofmatos.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;rohitc.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;rohitsharma.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;sameerj.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;samlafell.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;santee.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;sarah.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;sarahfloris.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;sarathsagi.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;scjones02010.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;shivam777.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;shoaibarif.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;shraddha.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;shreyas.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;shubs.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;simerjit.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;sinhashefali15.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;sitemap.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;sitemaps.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;sk648427.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;smami.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;smasif.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;smemtx.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;snachi2.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;soandan.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;sralla.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;sreelala.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;sriharsha.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;ssharma11.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;sspaeti.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;svadluri.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;swatisuman18.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;tahsinekram.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;taljuk01.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;taral.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;techcreator.herokuapp.com&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;techcreator.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;temptest.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;test.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;test.zachwilson.tech&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;testing.zachwilson.tech&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;tom.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;udemeu.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;ujjawal.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;vadlamania.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;vatsa.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;vidyagopalan.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;vikask.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;viktorekstrom.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;vishalkhondre.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;vpern2.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;vsandeep1244.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;webmail.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;welch.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;westest.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;withsaikat.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;wow23.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;wuthsaikatdt.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;www.eczachly.com&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;www.lulu.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;www.maritochapin.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;www.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;www.zachwilson.tech&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;xinranwaibel.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;zach.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;zach1113.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;zach11133.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;zachaaaaa.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;zachbiggestfan.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;zachsbiggestfan.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;zachwilson.herokuapp.com&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;zachwilson.localhost:3000&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;zachwilson.tech&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;zachwilson.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;zsavi524.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;zzz.techcreator.io&quot;' />
+            </groupfilter>
+          </groupfilter>
+        </groupfilter>
+      </group>
+      <group caption='Top 10 Hosts' name='[Top 7 Hosts]' name-style='unqualified' user:ui-builder='filter-group'>
+        <groupfilter count='10' end='top' function='end' units='records' user:ui-marker='end' user:ui-top-by-field='true'>
+          <groupfilter direction='DESC' expression='COUNT([__tableau_internal_object_id__].[events.csv_1113F1F2BFCC43818BE83D23C945DB80])' function='order' user:ui-marker='order'>
+            <groupfilter function='union' user:ui-domain='database' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
+              <groupfilter function='member' level='[host]' member='&quot;aashish.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;abhishekanand.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;ablumhardt.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;accc.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;adam.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;admin.zachwilson.tech&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;afonsolenzi.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;ahmedgs.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;aishgrt.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;aishwarya.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;albertoxvicente.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;alex.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;amit22.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;andrewm.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;aneerat1.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;anitjyotishi.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;ankit.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;annageller.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;anne.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;anuragambuja.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;arumi.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;arumi514.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;arundac23.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;asdsadsas.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;asegura.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;ashrafomara.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;bahushekh.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;balthapaixao.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;bek.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;bgraves.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;bjork.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;bootcamp.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;brandonltran.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;bvs555.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;carly.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;carolinegjr.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;caseyb574.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;chethan.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;chetna.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;cookiemonster.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;crajas200.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;daliana.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;dalianacrazytest.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;dalianatest123.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;danmac.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;darkhan.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;datawithdhruv.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;dblash55.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;dchintada.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;dd007.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;delelinus.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;denmiller3.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;dilan.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;dipankartnt.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;dmcvey.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;dougkim.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;dscottdegeest.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;dsk.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;dutchengineer.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;dvic.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;eczachly.com&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;eczachly.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;eee.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;eliasbenaddou.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;eliasotieno.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;elijahdecalmer.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;ella.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;eswardileep99.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;fabioantunes.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;fahadahme.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;fifthfrankie.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;fjaxyu.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;fmaina.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;ges214.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;gina.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;gireeshgalande.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;gowrirajavelu.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;granoladata.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;guima.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;habeeb.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;habibjanjua.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;harigudla.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;haroombe.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;harshitsati.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;harshoswal957.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;havih1.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;hehateme1304.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;him049.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;host.docker.internal:3000&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;httpszachwilson.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;httpzachwilson.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;ibmsayem.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;imsasuke.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;indera.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;jabhij.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;jadenguyenseattlegirl.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;jashyant.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;jcharbneau.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;jdk5115.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;jeannerot.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;jguillot.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;jjsuriano.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;joca.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;joey.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;johncrickett.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;jordanallenlewis.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;jorgeruiz97jr.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;josh.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;jpdrapeau.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;juliescherer.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;karema.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;karthikk.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;kilodalton.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;kinza.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;kirthiga.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;kmazurczyk.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;kmdeore359.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;kotpeter.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;kukukaka.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;kumar111.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;kunalkushwaha.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;kyledufrane.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;lakshmik.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;ldch90.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;lipeoctareo.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;liyin.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;lizzzz0.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;lkaufman.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;lmaopeep.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;localhost:3000&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;looz.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;lul.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;lulu.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;luul.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;mahesh40.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;mani1418.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;maritochapin.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;mathiasmike.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;meame2010.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;mikepuri07.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;mitali.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;mjones.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;mrajasekhar9.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;mrukaj.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;msikou.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;mu303usm.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;mveilleux.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;mybuys009.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;mytrainerly.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;nagkumar.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;nanaadu.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;neeraj3685.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;nicksingh.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;niharikaravela.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;norby.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;octavianzarzu.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;octavs.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;owa.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;oxin.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;pandiankavi36.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;paritesh.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;peterdrock.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;pkrishmurthy.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;ppat.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;pradeepcprabhakar.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;prathamesh0421.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;pratikt07.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;pravinbtech.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;priyali.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;raghad.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;rahulcanzod.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;rahulkumaran.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;rajincloud0.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;rajshan.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;ramyaiyappan.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;ranbir9.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;revanth25.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;rodrigofmatos.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;rohitc.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;rohitsharma.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;sameerj.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;samlafell.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;santee.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;sarah.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;sarahfloris.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;sarathsagi.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;scjones02010.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;shivam777.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;shoaibarif.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;shraddha.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;shreyas.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;shubs.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;simerjit.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;sinhashefali15.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;sitemap.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;sitemaps.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;sk648427.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;smami.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;smasif.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;smemtx.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;snachi2.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;soandan.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;sralla.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;sreelala.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;sriharsha.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;ssharma11.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;sspaeti.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;svadluri.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;swatisuman18.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;tahsinekram.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;taljuk01.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;taral.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;techcreator.herokuapp.com&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;techcreator.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;temptest.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;test.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;test.zachwilson.tech&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;testing.zachwilson.tech&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;tom.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;udemeu.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;ujjawal.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;vadlamania.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;vatsa.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;vidyagopalan.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;vikask.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;viktorekstrom.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;vishalkhondre.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;vpern2.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;vsandeep1244.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;webmail.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;welch.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;westest.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;withsaikat.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;wow23.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;wuthsaikatdt.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;www.eczachly.com&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;www.lulu.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;www.maritochapin.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;www.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;www.zachwilson.tech&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;xinranwaibel.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;zach.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;zach1113.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;zach11133.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;zachaaaaa.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;zachbiggestfan.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;zachsbiggestfan.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;zachwilson.herokuapp.com&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;zachwilson.localhost:3000&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;zachwilson.tech&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;zachwilson.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;zsavi524.techcreator.io&quot;' />
+              <groupfilter function='member' level='[host]' member='&quot;zzz.techcreator.io&quot;' />
+            </groupfilter>
+          </groupfilter>
+        </groupfilter>
+      </group>
+      <extract _.fcp.VConnDownstreamExtractsWithWarnings.true...user-specific='false' count='-1' enabled='true' object-id='' units='records'>
+        <connection access_mode='readonly' author-locale='en_US' class='hyper' dbname='C:/Users/GUSTAV~1/AppData/Local/Temp/TableauTemp/#TableauTemp_0c4rzef0g4hlwz1g9hmo60dluyaf.hyper' default-settings='hyper' schema='Extract' sslmode='' tablename='Extract' update-time='11/01/2025 03:02:06 PM' username='tableau_internal_user'>
+          <relation type='collection'>
+            <relation name='events.csv_1113F1F2BFCC43818BE83D23C945DB80' table='[Extract].[events.csv_1113F1F2BFCC43818BE83D23C945DB80]' type='table' />
+            <relation name='devices.csv_83D13CC4C3684DCF87833F4541BD96F1' table='[Extract].[devices.csv_83D13CC4C3684DCF87833F4541BD96F1]' type='table' />
+          </relation>
+          <cols>
+            <map key='[browser_type]' value='[devices.csv_83D13CC4C3684DCF87833F4541BD96F1].[browser_type]' />
+            <map key='[device_id (devices.csv)]' value='[devices.csv_83D13CC4C3684DCF87833F4541BD96F1].[device_id]' />
+            <map key='[device_id]' value='[events.csv_1113F1F2BFCC43818BE83D23C945DB80].[device_id]' />
+            <map key='[device_type]' value='[devices.csv_83D13CC4C3684DCF87833F4541BD96F1].[device_type]' />
+            <map key='[event_time]' value='[events.csv_1113F1F2BFCC43818BE83D23C945DB80].[event_time]' />
+            <map key='[host]' value='[events.csv_1113F1F2BFCC43818BE83D23C945DB80].[host]' />
+            <map key='[os_type]' value='[devices.csv_83D13CC4C3684DCF87833F4541BD96F1].[os_type]' />
+            <map key='[referrer]' value='[events.csv_1113F1F2BFCC43818BE83D23C945DB80].[referrer]' />
+            <map key='[url]' value='[events.csv_1113F1F2BFCC43818BE83D23C945DB80].[url]' />
+            <map key='[user_id]' value='[events.csv_1113F1F2BFCC43818BE83D23C945DB80].[user_id]' />
+          </cols>
+          <metadata-records>
+            <metadata-record class='column'>
+              <remote-name>user_id</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[user_id]</local-name>
+              <parent-name>[events.csv_1113F1F2BFCC43818BE83D23C945DB80]</parent-name>
+              <remote-alias>user_id</remote-alias>
+              <ordinal>0</ordinal>
+              <family>events.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>69568</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+              <object-id>[events.csv_1113F1F2BFCC43818BE83D23C945DB80]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>device_id</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[device_id]</local-name>
+              <parent-name>[events.csv_1113F1F2BFCC43818BE83D23C945DB80]</parent-name>
+              <remote-alias>device_id</remote-alias>
+              <ordinal>1</ordinal>
+              <family>events.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>4246</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+              <object-id>[events.csv_1113F1F2BFCC43818BE83D23C945DB80]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>referrer</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[referrer]</local-name>
+              <parent-name>[events.csv_1113F1F2BFCC43818BE83D23C945DB80]</parent-name>
+              <remote-alias>referrer</remote-alias>
+              <ordinal>2</ordinal>
+              <family>events.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>1497</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+              <object-id>[events.csv_1113F1F2BFCC43818BE83D23C945DB80]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>host</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[host]</local-name>
+              <parent-name>[events.csv_1113F1F2BFCC43818BE83D23C945DB80]</parent-name>
+              <remote-alias>host</remote-alias>
+              <ordinal>3</ordinal>
+              <family>events.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>32</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+              <object-id>[events.csv_1113F1F2BFCC43818BE83D23C945DB80]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>url</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[url]</local-name>
+              <parent-name>[events.csv_1113F1F2BFCC43818BE83D23C945DB80]</parent-name>
+              <remote-alias>url</remote-alias>
+              <ordinal>4</ordinal>
+              <family>events.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>2910</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+              <object-id>[events.csv_1113F1F2BFCC43818BE83D23C945DB80]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>event_time</remote-name>
+              <remote-type>135</remote-type>
+              <local-name>[event_time]</local-name>
+              <parent-name>[events.csv_1113F1F2BFCC43818BE83D23C945DB80]</parent-name>
+              <remote-alias>event_time</remote-alias>
+              <ordinal>5</ordinal>
+              <family>events.csv</family>
+              <local-type>datetime</local-type>
+              <aggregation>Year</aggregation>
+              <approx-count>412320</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[events.csv_1113F1F2BFCC43818BE83D23C945DB80]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>device_id</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[device_id (devices.csv)]</local-name>
+              <parent-name>[devices.csv_83D13CC4C3684DCF87833F4541BD96F1]</parent-name>
+              <remote-alias>device_id</remote-alias>
+              <ordinal>6</ordinal>
+              <family>devices.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>5644</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+              <object-id>[devices.csv_83D13CC4C3684DCF87833F4541BD96F1]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>browser_type</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[browser_type]</local-name>
+              <parent-name>[devices.csv_83D13CC4C3684DCF87833F4541BD96F1]</parent-name>
+              <remote-alias>browser_type</remote-alias>
+              <ordinal>7</ordinal>
+              <family>devices.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>137</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+              <object-id>[devices.csv_83D13CC4C3684DCF87833F4541BD96F1]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>os_type</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[os_type]</local-name>
+              <parent-name>[devices.csv_83D13CC4C3684DCF87833F4541BD96F1]</parent-name>
+              <remote-alias>os_type</remote-alias>
+              <ordinal>8</ordinal>
+              <family>devices.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>15</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+              <object-id>[devices.csv_83D13CC4C3684DCF87833F4541BD96F1]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>device_type</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[device_type]</local-name>
+              <parent-name>[devices.csv_83D13CC4C3684DCF87833F4541BD96F1]</parent-name>
+              <remote-alias>device_type</remote-alias>
+              <ordinal>9</ordinal>
+              <family>devices.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>456</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+              <object-id>[devices.csv_83D13CC4C3684DCF87833F4541BD96F1]</object-id>
+            </metadata-record>
+          </metadata-records>
+        </connection>
+      </extract>
+      <layout dim-ordering='alphabetic' measure-ordering='alphabetic' show-structure='true' />
+      <style>
+        <style-rule element='mark'>
+          <encoding attr='color' field='[none:host:nk]' type='palette'>
+            <map to='#499894'>
+              <bucket>&quot;adam.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;balthapaixao.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;dblash55.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;eswardileep99.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;him049.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;josh.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;lkaufman.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;mybuys009.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;pravinbtech.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;shivam777.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;svadluri.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;vpern2.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;zachwilson.herokuapp.com&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;admin.zachwilson.tech&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;anuragambuja.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;cookiemonster.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;dvic.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;habeeb.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;jeannerot.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;kumar111.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;mikepuri07.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;pandiankavi36.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;rohitsharma.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;smemtx.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;udemeu.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;asdsadsas.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;dalianatest123.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;eliasbenaddou.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;harshitsati.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;joey.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;ldch90.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;lulu.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;mrukaj.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;ppat.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;sarah.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;sreelala.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;vidyagopalan.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;zach.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#76b7b2'>
+              <bucket>&quot;fjaxyu.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;aishgrt.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;alex.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;bootcamp.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;denmiller3.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;ibmsayem.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;karthikk.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;lul.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;neeraj3685.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;rahulkumaran.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;shubs.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;taral.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;westest.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;zsavi524.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;afonsolenzi.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;bek.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;dchintada.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;fabioantunes.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;host.docker.internal:3000&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;jpdrapeau.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;lmaopeep.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;mytrainerly.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;priyali.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;shoaibarif.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;swatisuman18.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;vsandeep1244.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;zachwilson.localhost:3000&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;abhishekanand.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;asegura.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;danmac.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;eliasotieno.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;harshoswal957.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;johncrickett.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;lipeoctareo.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;msikou.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;pradeepcprabhakar.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;sarahfloris.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;sriharsha.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;vikask.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;zachaaaaa.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#9c755f'>
+              <bucket>&quot;www.zachwilson.tech&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;annageller.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;chethan.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;dsk.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;granoladata.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;jcharbneau.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;kotpeter.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;mathiasmike.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;owa.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;rodrigofmatos.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;smami.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;testing.zachwilson.tech&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;www.maritochapin.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>%null%</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;arumi514.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;crajas200.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;eczachly.com&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;habibjanjua.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;jguillot.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;kunalkushwaha.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;mitali.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;paritesh.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;sameerj.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;snachi2.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;ujjawal.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;xinranwaibel.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;anitjyotishi.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;carolinegjr.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;dougkim.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;gireeshgalande.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;jadenguyenseattlegirl.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;kmazurczyk.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;mani1418.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;octavianzarzu.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;ranbir9.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;temptest.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;test.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;www.eczachly.com&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;ablumhardt.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;ashrafomara.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;darkhan.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;elijahdecalmer.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;havih1.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;jordanallenlewis.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;liyin.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;mu303usm.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;prathamesh0421.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;sarathsagi.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;ssharma11.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;viktorekstrom.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;zachbiggestfan.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;amit22.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;brandonltran.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;dilan.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;imsasuke.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;kilodalton.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;luul.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;nicksingh.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;rajincloud0.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;simerjit.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;techcreator.herokuapp.com&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;withsaikat.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;zachwilson.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;zzz.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;aishwarya.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;andrewm.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;bvs555.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;dipankartnt.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;ges214.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;indera.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;kinza.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;niharikaravela.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;rajshan.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;sinhashefali15.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;techcreator.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;wow23.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;ankit.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;caseyb574.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;dscottdegeest.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;gowrirajavelu.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;jashyant.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;kmdeore359.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;maritochapin.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;octavs.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;revanth25.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;sk648427.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;test.zachwilson.tech&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;www.lulu.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;anne.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;chetna.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;fmaina.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;guima.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;jdk5115.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;kukukaka.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;meame2010.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;oxin.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;rohitc.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;smasif.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;tom.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;bgraves.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;dd007.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;dutchengineer.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;fahadahme.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;httpszachwilson.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;juliescherer.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;localhost:3000&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;nagkumar.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;raghad.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;shraddha.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;tahsinekram.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;webmail.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;zachwilson.tech&quot;</bucket>
+            </map>
+            <map to='#edc948'>
+              <bucket>&quot;sitemaps.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;accc.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;bahushekh.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;datawithdhruv.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;ella.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;hehateme1304.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;jorgeruiz97jr.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;lizzzz0.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;mveilleux.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;pratikt07.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;scjones02010.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;sspaeti.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;vishalkhondre.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;zachsbiggestfan.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;arumi.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;daliana.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;delelinus.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;eczachly.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;harigudla.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;jjsuriano.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;kyledufrane.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;mjones.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;peterdrock.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;samlafell.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;soandan.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;vadlamania.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;zach1113.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;aneerat1.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;carly.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;dmcvey.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;gina.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;jabhij.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;kirthiga.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;mahesh40.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;norby.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;ramyaiyappan.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;sitemap.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;wuthsaikatdt.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;ahmedgs.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;albertoxvicente.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;bjork.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;fifthfrankie.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;httpzachwilson.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;karema.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;looz.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;nanaadu.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;rahulcanzod.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;shreyas.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;taljuk01.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;welch.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#ff9da7'>
+              <bucket>&quot;www.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;aashish.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;arundac23.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;dalianacrazytest.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;eee.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;haroombe.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;joca.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;lakshmik.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;mrajasekhar9.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;pkrishmurthy.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;santee.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;sralla.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;vatsa.techcreator.io&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;zach11133.techcreator.io&quot;</bucket>
+            </map>
+          </encoding>
+        </style-rule>
+      </style>
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;Portugal&quot;' />
+      </semantic-values>
+      <object-graph>
+        <objects>
+          <object caption='devices.csv' id='devices.csv_83D13CC4C3684DCF87833F4541BD96F1'>
+            <properties context=''>
+              <relation connection='textscan.1xtykdm0lrxjgr1erhm8y0zq0lq2' name='devices.csv' table='[devices#csv]' type='table'>
+                <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+                  <column datatype='string' name='device_id' ordinal='0' />
+                  <column datatype='string' name='browser_type' ordinal='1' />
+                  <column datatype='string' name='os_type' ordinal='2' />
+                  <column datatype='string' name='device_type' ordinal='3' />
+                </columns>
+              </relation>
+            </properties>
+            <properties context='extract'>
+              <relation name='devices.csv_83D13CC4C3684DCF87833F4541BD96F1' table='[Extract].[devices.csv_83D13CC4C3684DCF87833F4541BD96F1]' type='table' />
+            </properties>
+          </object>
+          <object caption='events.csv' id='events.csv_1113F1F2BFCC43818BE83D23C945DB80'>
+            <properties context=''>
+              <relation connection='textscan.1xtykdm0lrxjgr1erhm8y0zq0lq2' name='events.csv' table='[events#csv]' type='table'>
+                <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+                  <column datatype='string' name='user_id' ordinal='0' />
+                  <column datatype='string' name='device_id' ordinal='1' />
+                  <column datatype='string' name='referrer' ordinal='2' />
+                  <column datatype='string' name='host' ordinal='3' />
+                  <column datatype='string' name='url' ordinal='4' />
+                  <column datatype='datetime' name='event_time' ordinal='5' />
+                </columns>
+              </relation>
+            </properties>
+            <properties context='extract'>
+              <relation name='events.csv_1113F1F2BFCC43818BE83D23C945DB80' table='[Extract].[events.csv_1113F1F2BFCC43818BE83D23C945DB80]' type='table' />
+            </properties>
+          </object>
+        </objects>
+        <relationships>
+          <relationship>
+            <expression op='='>
+              <expression op='[device_id]' />
+              <expression op='[device_id (devices.csv)]' />
+            </expression>
+            <first-end-point object-id='events.csv_1113F1F2BFCC43818BE83D23C945DB80' />
+            <second-end-point object-id='devices.csv_83D13CC4C3684DCF87833F4541BD96F1' />
+          </relationship>
+        </relationships>
+      </object-graph>
+    </datasource>
+  </datasources>
+  <worksheets>
+    <worksheet name='Sheet 1'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run>top 10 in 2023</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='events.csv+ (Multiple Connections)' name='federated.07uw3g30fzc4ja1g0gr3s1hcohhn' />
+          </datasources>
+          <datasource-dependencies datasource='federated.07uw3g30fzc4ja1g0gr3s1hcohhn'>
+            <column-instance column='[__tableau_internal_object_id__].[events.csv_1113F1F2BFCC43818BE83D23C945DB80]' derivation='Count' name='[__tableau_internal_object_id__].[cnt:events.csv_1113F1F2BFCC43818BE83D23C945DB80:qk]' pivot='key' type='quantitative' />
+            <column caption='events.csv' datatype='table' name='[__tableau_internal_object_id__].[events.csv_1113F1F2BFCC43818BE83D23C945DB80]' role='measure' type='quantitative' />
+            <column caption='Event Time' datatype='datetime' name='[event_time]' role='dimension' type='ordinal' />
+            <column caption='Host' datatype='string' name='[host]' role='dimension' type='nominal' />
+            <column-instance column='[host]' derivation='None' name='[none:host:nk]' pivot='key' type='nominal' />
+            <column-instance column='[event_time]' derivation='Year' name='[yr:event_time:ok]' pivot='key' type='ordinal' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.07uw3g30fzc4ja1g0gr3s1hcohhn].[Top 7 Hosts]' />
+          <filter class='categorical' column='[federated.07uw3g30fzc4ja1g0gr3s1hcohhn].[yr:event_time:ok]'>
+            <groupfilter function='member' level='[yr:event_time:ok]' member='2023' user:ui-domain='database' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+          </filter>
+          <shelf-sorts>
+            <shelf-sort-v2 dimension-to-sort='[federated.07uw3g30fzc4ja1g0gr3s1hcohhn].[none:host:nk]' direction='DESC' is-on-innermost-dimension='true' measure-to-sort-by='[federated.07uw3g30fzc4ja1g0gr3s1hcohhn].[__tableau_internal_object_id__].[cnt:events.csv_1113F1F2BFCC43818BE83D23C945DB80:qk]' shelf='columns' />
+          </shelf-sorts>
+          <slices>
+            <column>[federated.07uw3g30fzc4ja1g0gr3s1hcohhn].[Top 7 Hosts]</column>
+            <column>[federated.07uw3g30fzc4ja1g0gr3s1hcohhn].[yr:event_time:ok]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+        </panes>
+        <rows>[federated.07uw3g30fzc4ja1g0gr3s1hcohhn].[__tableau_internal_object_id__].[cnt:events.csv_1113F1F2BFCC43818BE83D23C945DB80:qk]</rows>
+        <cols>[federated.07uw3g30fzc4ja1g0gr3s1hcohhn].[none:host:nk]</cols>
+      </table>
+      <simple-id uuid='{BFC0BA56-0CDC-48F8-9652-D2355B7E982D}' />
+    </worksheet>
+    <worksheet name='Sheet 2'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run>Top 3 growth by year</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='events.csv+ (Multiple Connections)' name='federated.07uw3g30fzc4ja1g0gr3s1hcohhn' />
+          </datasources>
+          <datasource-dependencies datasource='federated.07uw3g30fzc4ja1g0gr3s1hcohhn'>
+            <column-instance column='[__tableau_internal_object_id__].[events.csv_1113F1F2BFCC43818BE83D23C945DB80]' derivation='Count' name='[__tableau_internal_object_id__].[cnt:events.csv_1113F1F2BFCC43818BE83D23C945DB80:qk]' pivot='key' type='quantitative' />
+            <column caption='events.csv' datatype='table' name='[__tableau_internal_object_id__].[events.csv_1113F1F2BFCC43818BE83D23C945DB80]' role='measure' type='quantitative' />
+            <column caption='Event Time' datatype='datetime' name='[event_time]' role='dimension' type='ordinal' />
+            <column caption='Host' datatype='string' name='[host]' role='dimension' type='nominal' />
+            <column-instance column='[host]' derivation='None' name='[none:host:nk]' pivot='key' type='nominal' />
+            <column-instance column='[event_time]' derivation='Year' name='[yr:event_time:ok]' pivot='key' type='ordinal' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.07uw3g30fzc4ja1g0gr3s1hcohhn].[Host Set]' />
+          <slices>
+            <column>[federated.07uw3g30fzc4ja1g0gr3s1hcohhn].[Host Set]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.07uw3g30fzc4ja1g0gr3s1hcohhn].[none:host:nk]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>[federated.07uw3g30fzc4ja1g0gr3s1hcohhn].[__tableau_internal_object_id__].[cnt:events.csv_1113F1F2BFCC43818BE83D23C945DB80:qk]</rows>
+        <cols>[federated.07uw3g30fzc4ja1g0gr3s1hcohhn].[yr:event_time:ok]</cols>
+      </table>
+      <simple-id uuid='{C3122687-2AEF-43C0-A6C7-76CFF987C78F}' />
+    </worksheet>
+    <worksheet name='Sheet 3'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run>Dominance between top 3</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='events.csv+ (Multiple Connections)' name='federated.07uw3g30fzc4ja1g0gr3s1hcohhn' />
+          </datasources>
+          <datasource-dependencies datasource='federated.07uw3g30fzc4ja1g0gr3s1hcohhn'>
+            <column caption='events.csv' datatype='table' name='[__tableau_internal_object_id__].[events.csv_1113F1F2BFCC43818BE83D23C945DB80]' role='measure' type='quantitative' />
+            <column caption='Event Time' datatype='datetime' name='[event_time]' role='dimension' type='ordinal' />
+            <column caption='Host' datatype='string' name='[host]' role='dimension' type='nominal' />
+            <column-instance column='[host]' derivation='None' name='[none:host:nk]' pivot='key' type='nominal' />
+            <column-instance column='[__tableau_internal_object_id__].[events.csv_1113F1F2BFCC43818BE83D23C945DB80]' derivation='Count' name='[pcto:cnt:events.csv_1113F1F2BFCC43818BE83D23C945DB80:qk:4]' pivot='key' type='quantitative'>
+              <table-calc ordering-field='[federated.07uw3g30fzc4ja1g0gr3s1hcohhn].[host]' ordering-type='Field' type='PctTotal' />
+            </column-instance>
+            <column-instance column='[event_time]' derivation='Year-Trunc' name='[tyr:event_time:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.07uw3g30fzc4ja1g0gr3s1hcohhn].[Host Set]' />
+          <slices>
+            <column>[federated.07uw3g30fzc4ja1g0gr3s1hcohhn].[Host Set]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Area' />
+            <encodings>
+              <color column='[federated.07uw3g30fzc4ja1g0gr3s1hcohhn].[none:host:nk]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>[federated.07uw3g30fzc4ja1g0gr3s1hcohhn].[pcto:cnt:events.csv_1113F1F2BFCC43818BE83D23C945DB80:qk:4]</rows>
+        <cols>[federated.07uw3g30fzc4ja1g0gr3s1hcohhn].[tyr:event_time:qk]</cols>
+      </table>
+      <simple-id uuid='{A5D5DF96-70E8-4D99-9C89-DB7F98C9E5C1}' />
+    </worksheet>
+    <worksheet name='Sheet 4'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run>website usage</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='events.csv+ (Multiple Connections)' name='federated.07uw3g30fzc4ja1g0gr3s1hcohhn' />
+          </datasources>
+          <datasource-dependencies datasource='federated.07uw3g30fzc4ja1g0gr3s1hcohhn'>
+            <column-instance column='[__tableau_internal_object_id__].[events.csv_1113F1F2BFCC43818BE83D23C945DB80]' derivation='Count' name='[__tableau_internal_object_id__].[cnt:events.csv_1113F1F2BFCC43818BE83D23C945DB80:qk]' pivot='key' type='quantitative' />
+            <column caption='events.csv' datatype='table' name='[__tableau_internal_object_id__].[events.csv_1113F1F2BFCC43818BE83D23C945DB80]' role='measure' type='quantitative' />
+            <column caption='Event Time' datatype='datetime' name='[event_time]' role='dimension' type='ordinal' />
+            <column caption='Host' datatype='string' name='[host]' role='dimension' type='nominal' />
+            <column-instance column='[host]' derivation='None' name='[none:host:nk]' pivot='key' type='nominal' />
+            <column-instance column='[event_time]' derivation='Day-Trunc' name='[tdy:event_time:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.07uw3g30fzc4ja1g0gr3s1hcohhn].[Host Set]' />
+          <slices>
+            <column>[federated.07uw3g30fzc4ja1g0gr3s1hcohhn].[Host Set]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.07uw3g30fzc4ja1g0gr3s1hcohhn].[none:host:nk]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>[federated.07uw3g30fzc4ja1g0gr3s1hcohhn].[__tableau_internal_object_id__].[cnt:events.csv_1113F1F2BFCC43818BE83D23C945DB80:qk]</rows>
+        <cols>[federated.07uw3g30fzc4ja1g0gr3s1hcohhn].[tdy:event_time:qk]</cols>
+      </table>
+      <simple-id uuid='{D05C7F95-6D3D-4865-B68B-F6B8A1A41334}' />
+    </worksheet>
+  </worksheets>
+  <windows source-height='30'>
+    <window class='worksheet' name='Sheet 1'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[federated.07uw3g30fzc4ja1g0gr3s1hcohhn].[Top 7 Hosts]</field>
+            <field>[federated.07uw3g30fzc4ja1g0gr3s1hcohhn].[none:browser_type:nk]</field>
+            <field>[federated.07uw3g30fzc4ja1g0gr3s1hcohhn].[none:host:nk]</field>
+            <field>[federated.07uw3g30fzc4ja1g0gr3s1hcohhn].[yr:event_time:ok]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{A147FA12-4D9D-4761-8EB7-2FA36651907E}' />
+    </window>
+    <window class='worksheet' name='Sheet 2'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.07uw3g30fzc4ja1g0gr3s1hcohhn].[none:host:nk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[federated.07uw3g30fzc4ja1g0gr3s1hcohhn].[Host Set]</field>
+            <field>[federated.07uw3g30fzc4ja1g0gr3s1hcohhn].[Top 7 Hosts]</field>
+            <field>[federated.07uw3g30fzc4ja1g0gr3s1hcohhn].[none:host:nk]</field>
+            <field>[federated.07uw3g30fzc4ja1g0gr3s1hcohhn].[yr:event_time:ok]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{07BCFE73-8FDF-4A30-9985-C95A86DF2C34}' />
+    </window>
+    <window class='worksheet' name='Sheet 3'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.07uw3g30fzc4ja1g0gr3s1hcohhn].[none:host:nk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[federated.07uw3g30fzc4ja1g0gr3s1hcohhn].[Host Set]</field>
+            <field>[federated.07uw3g30fzc4ja1g0gr3s1hcohhn].[Top 7 Hosts]</field>
+            <field>[federated.07uw3g30fzc4ja1g0gr3s1hcohhn].[none:host:nk]</field>
+            <field>[federated.07uw3g30fzc4ja1g0gr3s1hcohhn].[yr:event_time:ok]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{44D68F06-22E3-4443-B8F2-857A25208166}' />
+    </window>
+    <window class='worksheet' maximized='true' name='Sheet 4'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.07uw3g30fzc4ja1g0gr3s1hcohhn].[none:host:nk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[federated.07uw3g30fzc4ja1g0gr3s1hcohhn].[Host Set]</field>
+            <field>[federated.07uw3g30fzc4ja1g0gr3s1hcohhn].[none:host:nk]</field>
+            <field>[federated.07uw3g30fzc4ja1g0gr3s1hcohhn].[yr:event_time:ok]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{8FAF1A7B-0354-4C1F-93B0-CDC883EC9A54}' />
+    </window>
+  </windows>
+  <thumbnails>
+    <thumbnail height='192' name='Sheet 1' width='192'>
+      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
+    </thumbnail>
+    <thumbnail height='192' name='Sheet 2' width='192'>
+      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
+    </thumbnail>
+    <thumbnail height='192' name='Sheet 3' width='192'>
+      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
+      x4SMqo7Zto0xBtt+/R5R27JRSo0tjTgcxlR6Ab9eq8uYX5yKpRS2bY3tc5MHwHG59f4Ho9dK
+      0VpeARRg2Fh3gdakHwGMzvyVXsCnK1Xp/GJqpnIj7NVJ6N9eT6+TJkmK0xnwcasy8+fIiqtt
+      7ntTmmaYwx6/blXmuryGWExzvRQiSVKywy6/X60vzBY7sVjmtlelaYY56vHlSr6K1YrZmsue
+      lWaa5LDHF62qlCwUF2ruhkDaGLLDHr9tVaTziws3Vz8BjDH4+x2+aJal84uZmKsANJThn1Yq
+      UqxWzMxcBcBBUZIJr5gh6W0i1yQAItckACLXJAAi1yQAItckACLXJAAi1yQAItckACLXJAAi
+      1yQAItckACLXphKAJBoShBHGGIJBnyTTJPGQJNXoLCXTUrtHzKfJ1x2nAV9/dx9Px5TX2gy6
+      AZk2FK0MY3uUbUN7exdZ3S/m0eQBsBzM0Oc4NtiNkM2tXR7c+wan4BKEPY4zQ6h+5O3ta2it
+      ybJsbJWuLE3fWMZOiDNTo+IKmguqDKfjAO1V2ayGdGKL/YOnpNpmd3eHH+79SBIPiEMfy7Je
+      VnxznNd/rO04WNb4ynBCnJVlWRQKDnbh9X1u4gBYXoN3tw1hqrjdrHJy3GF9dRWUxdb2FiYJ
+      SZCns4v5NIW9h4pqo8mLBxMtr6y8/Bu3CBRryLMaxbySsYbINQmAyDUJgMg1CYDINQmAyDUJ
+      gMg1CYDINQmAyDUJgMg1CYDINQmAyDUJgMg1CYDINQmAyDUJgMg1CYDINQmAyDUJgMg1CYDI
+      NQmAyLWJN8UbY9DP6/hYljV6rdQoWUq9PE698lqIeTF5ALKEh/fv8+TRY/Zu3uThswPW2mvE
+      /SN0oUrNyWhu7OLJs6/FHJq8LpBTZGdvFz/KKFsZyXA4qu5mFUj8E46MYmjvs3OtLZXhxOxd
+      dGU4gN7+I+rtbUoNm198uMz339/h9vs3uHf/MUkSE/ldLGtNKsOJmbvwynAAVmWFrVqFNOyz
+      //SAjbf2sCxYv7aFjnpEuNP4GCGmbioBqNVqABRKNfau117+eaUMlFeojXmfEJdNxhoi1yQA
+      ItckACLXJAAi1yQAItckACLXJAAi1yQAItckACLXJAAi1yQAItckACLXJAAi1yQAItckACLX
+      JAALyBgzdlupOBsJwAJKwiGdZ08wsnd6YhKABZMlKd3OQ4x3QtDrXXZzFp4EYIFkacbJ/gPc
+      lYxC1SIInqKz7LKbtdAkAAvCaE3v8AmF5SGWrVBKUVzW9A73ZT4wAQnAAjDG0D3cR9V62MW/
+      fcvsgkXmnBCH4SW2brFNXBVCpzEP7t8nCIdsXn+Xw0f3qa9uYg27aLdB1UlRpQaeI6URz2tw
+      fIQuHlP0/vF8VWwo+gdPKHh7Uk/pHCYOgLILbO/u8e3/fU3/6Efq7U32H9+l4JYxnS49x2Nr
+      p4oxNvDTWqL/wBjM82PESNjrE7NPsarGfl3s6pDB8RG11sqMWzf/XvSncX1u8gAohUl8rHIT
+      S8W4RRcNrDQqHByl9Acdvvku4aP3bqC1fmNjsud/LwEYicMh/vAR7vKbTwq2p4iCA7xhDcct
+      zrCF888YQ5ZpsF4/AplKYazDZ0ds7ezhBEf89YdvcMtNmstL+LGFVzCEeCilsG0bY8z40oi2
+      jaWkNCJAMowY9B/irahTVdZ2m4b+4VNaG7sX37gFYimF49jYY/rcVAKwvnN99KK+woe3lxnN
+      rQ1bG22gPY2PyJUsSekeP6S4ok9dVt6yFariE3S7lBuNC27h1TH1U61SFkqNhkav/hKnY7Sm
+      c/CYYivBss/2dStULPzgKVmSXlDrrp7/B+coP01X3fz9AAAAAElFTkSuQmCC
+    </thumbnail>
+    <thumbnail height='192' name='Sheet 4' width='192'>
+      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
+    </thumbnail>
+  </thumbnails>
+</workbook>
